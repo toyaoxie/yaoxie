@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yao Xie — PhD Scholar | AI-Enabled Systems & Well-being</title>
+<title>Yao Xie — PhD Scholar | Human-Computer Interaction & AI Systems</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -70,12 +70,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding-top: 56px;
+    align-items: center;
   }
   .hero-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 6rem 5rem 6rem 7rem;
+    padding: 0 5% 0 10%;
   }
   .hero-tag {
     display: inline-block;
@@ -105,15 +106,39 @@
     max-width: 480px;
     line-height: 1.6;
   }
+  
+  /* 首屏社交链接矩阵 */
+  .hero-socials {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .hero-socials a {
+    color: var(--ink-soft);
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+  }
+  .hero-socials a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+  }
+
   .hero-visual {
-    background: var(--accent-light);
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: transparent;
   }
   .hero-visual img {
     width: 100%;
-    height: 100%;
+    max-width: 440px;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: center top;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
   }
 
   /* BUTTONS */
@@ -134,7 +159,7 @@
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
   /* SECTIONS */
-  section { padding: 7rem 7rem; }
+  section { padding: 7rem 10%; }
   section:nth-child(even) { background: var(--warm-white); }
   .section-label {
     font-size: 11px;
@@ -188,20 +213,21 @@
     border: 1px solid var(--rule);
     padding: 2rem;
     transition: all 0.2s;
+    border-radius: 4px;
   }
   .research-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
   .research-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 0.75rem; }
   .research-card p { font-size: 14px; color: var(--ink-mid); }
 
-  /* LEADERSHIP & AWARDS */
+  /* MULTI-COL LAYOUTS (for Service, Awards, Pubs, Talks) */
   .two-col-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
   
   .service-item { margin-bottom: 2rem; }
-  .service-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 0.25rem; }
-  .service-item p { font-size: 14px; color: var(--ink-mid); }
+  .service-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 0.4rem; color: var(--ink); }
+  .service-item p { font-size: 14px; color: var(--ink-mid); line-height: 1.6; }
   
-  .award-list { list-style: none; }
-  .award-list li {
+  .list-ui { list-style: none; }
+  .list-ui li {
     padding: 1rem 0;
     border-bottom: 1px solid var(--rule);
     font-size: 14px;
@@ -211,14 +237,9 @@
     align-items: flex-start;
     gap: 1rem;
   }
-  .award-list strong { color: var(--ink); font-weight: 600; display: block; margin-bottom: 0.25rem; font-size: 15px;}
-  .award-year { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); font-weight: 600; white-space: nowrap; }
-
-  /* PUBLICATIONS */
-  .pub-item { padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
-  .pub-item small { color: var(--accent); font-weight: 600; font-family: 'DM Mono', monospace;}
-  .pub-item h4 { margin: 0.5rem 0; font-size: 16px; }
-  .pub-item p { font-size: 14px; color: var(--ink-soft); }
+  .list-ui strong { color: var(--ink); font-weight: 600; display: block; margin-bottom: 0.25rem; font-size: 15px;}
+  .list-ui span.meta { color: var(--ink-soft); font-size: 13px; display: block;}
+  .list-ui .year { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); font-weight: 600; white-space: nowrap; }
 
   /* CONTACT LINKS */
   .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
@@ -230,18 +251,50 @@
     border: 1px solid var(--rule);
     text-decoration: none;
     transition: all 0.2s;
+    border-radius: 4px;
   }
   .contact-card:hover { background: var(--accent-light); border-color: var(--accent); transform: translateY(-2px); }
   .contact-card i { font-size: 24px; color: var(--accent); margin-bottom: 1rem; }
   .contact-card span { font-size: 14px; font-weight: 600; color: var(--ink); }
   .contact-card small { font-size: 11px; color: var(--ink-soft); margin-top: 4px; }
 
-  /* RESPONSIVE */
+  footer {
+    padding: 3rem 10%;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: var(--paper);
+  }
+
+  /* RESPONSIVE DESIGN */
   @media (max-width: 1024px) {
-    #hero, .about-grid, .research-grid, .system-grid, .contact-grid, .two-col-layout { grid-template-columns: 1fr; gap: 2rem; }
-    .hero-visual { height: 400px; }
-    section { padding: 4rem 2rem; }
+    #hero { 
+      grid-template-columns: 1fr;
+      min-height: auto;
+      padding-top: 100px;
+      text-align: center;
+    }
+    .hero-text { padding: 2rem 5%; align-items: center; }
+    .hero-subtitle { margin-left: auto; margin-right: auto; }
+    .btn-row, .hero-socials { justify-content: center; }
+    .about-grid, .two-col-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .about-aside { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 2rem; }
+    .research-grid, .system-grid, .contact-grid { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 5rem 5%; }
+    footer { padding: 3rem 5%; }
+  }
+
+  @media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .hero-visual img { max-width: 320px; }
+    .research-grid, .system-grid, .contact-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
+    section { padding: 4rem 5%; }
+    footer { flex-direction: column; text-align: center; }
   }
 </style>
 </head>
@@ -252,24 +305,35 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#research">Research</a></li>
-    <li><a href="#leadership">Service & Awards</a></li>
-    <li><a href="#publications">Publications</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#academic-record">Academic Record</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<section id="hero" style="padding: 0;">
+<section id="hero">
   <div class="hero-text">
-    <span class="hero-tag">PhD Scholar · School of Medicine · UCD</span>
+    <span class="hero-tag">PhD Scholar · Human-Computer Interaction (HCI)</span>
     <h1>Making <em>well-being</em> computable.</h1>
     <p class="hero-subtitle">
       Designing AI systems that detect and intervene in well-being risks in high-pressure environments such as medical education.
     </p>
     <div class="btn-row">
       <a href="#research" class="btn btn-primary">Research Programme</a>
-      <a href="#leadership" class="btn btn-outline">Leadership & Recognition</a>
+      <a href="#leadership" class="btn btn-outline">Leadership & Impact</a>
+    </div>
+    
+    <div class="hero-socials">
+      <a href="https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+      <a href="https://toyaoxie.github.io/contextwell/" target="_blank" title="ContextWell Lab"><i class="fa-solid fa-microchip"></i></a>
+      <a href="https://www.linkedin.com/in/toyaoxie/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://x.com/toyaoxie" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.youtube.com/@toyaoxie" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://instagram.com/toyaoxie" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://toyaoxie.substack.com/" target="_blank" title="Substack"><i class="fa-solid fa-pen-nib"></i></a>
     </div>
   </div>
+  
   <div class="hero-visual">
     <img src="yao-xie.png" alt="Yao Xie Professional Portrait">
   </div>
@@ -281,7 +345,7 @@
     <div class="about-text">
       <h2>Researcher, educator,<br><em>system builder.</em></h2>
       <p>
-        I am a PhD scholar at University College Dublin, researching the intersection of AI, human well-being, and healthcare. My work focuses on making well-being explainable and teachable, ensuring AI systems support human flourishing in high-stakes contexts.
+        I am a PhD scholar at University College Dublin, researching the intersection of Human-Computer Interaction (HCI), AI, and healthcare. My work focuses on making well-being explainable and teachable, ensuring AI systems support human flourishing in high-stakes contexts.
       </p>
       <p>
         With a background spanning language education and digital health, I translate conceptual frameworks into implementable AI-supported systems. I have contributed to multi-national projects on Long-COVID and cardiovascular risk management with the Irish Heart Foundation and European partners.
@@ -290,7 +354,7 @@
     <div class="about-aside">
       <div class="aside-block">
         <h3>Primary Focus</h3>
-        <p>AI-Enabled Interventions · HCI · Digital Health</p>
+        <p>Human-Computer Interaction · AI-Enabled Interventions · Digital Health</p>
       </div>
       <div class="aside-block">
         <h3>Education</h3>
@@ -337,7 +401,7 @@
     </div>
     <div class="research-card">
       <h3>ContextWell Lab</h3>
-      <p>An AI-based intervention system for promoting well-being in high-pressure professional training.</p>
+      <p>An early-stage research lab and intervention system born from my PhD. It serves as an incubator to translate theoretical well-being frameworks into scalable AI applications and concrete clinical outcomes.</p>
     </div>
     <div class="research-card">
       <h3>AI Governance & Agency</h3>
@@ -349,20 +413,20 @@
 <section id="leadership" style="background: var(--paper);">
   <div class="two-col-layout">
     <div>
-      <p class="section-label">Service & Community</p>
-      <h2>Academic <em>Citizenship.</em></h2>
+      <p class="section-label">Leadership & Governance</p>
+      <h2>Driving <em>Impact.</em></h2>
       <div style="margin-top: 2rem;">
         <div class="service-item">
-          <h4>Peer Reviewer & Program Committee</h4>
-          <p>Reviewer for BMC Medical Ethics and AAAI AI for Medicine & Healthcare; PC Member for AAAI (2026).</p>
+          <h4>Founder & Organization Leader</h4>
+          <p>Founded and led the ISLA Society, managing a strategic team to secure university-level funding and develop initiatives supporting international scholars. Led cross-functional teams in digital strategy prior to academia.</p>
         </div>
         <div class="service-item">
           <h4>Institutional Governance</h4>
-          <p>Former Governor at University of Galway Governing Authority; Member of the National Student QA Reviewers Pool (QQI).</p>
+          <p>Elected Governor at the University of Galway Governing Authority, advocating for EDI policies and postgraduate strategies at the highest institutional level. Quality Assurance Reviewer for QQI.</p>
         </div>
         <div class="service-item">
-          <h4>Global Networks & Cost Actions</h4>
-          <p>Member of IASEAI, IMISCOE PhD Academy, and European COST Actions (BEACON, CA20115).</p>
+          <h4>Academic Service & Peer Review</h4>
+          <p>Program Committee Member for AAAI (2026); Peer Reviewer for BMC Medical Ethics. Active contributor to international networks including IASEAI and European COST Actions (BEACON).</p>
         </div>
       </div>
     </div>
@@ -370,72 +434,121 @@
     <div>
       <p class="section-label">Recognition</p>
       <h2>Honors & <em>Funding.</em></h2>
-      <ul class="award-list" style="margin-top: 1rem;">
+      <ul class="list-ui" style="margin-top: 1rem;">
         <li>
           <div>
             <strong>RCSI & UCD Malaysia Campus Scholarship</strong>
-            <span>One Health Field Training</span>
+            <span class="meta">One Health Field Training</span>
           </div>
-          <span class="award-year">2025</span>
+          <span class="year">2025</span>
         </li>
         <li>
           <div>
             <strong>Clifford C. Clogg Scholarship</strong>
-            <span>ICPSR Summer Program, University of Michigan</span>
+            <span class="meta">ICPSR Summer Program, University of Michigan</span>
           </div>
-          <span class="award-year">2024</span>
+          <span class="year">2024</span>
         </li>
         <li>
           <div>
             <strong>Nelson Mandela EDI Project Fund</strong>
-            <span>Anti-Racism Week Initiative, University of Galway</span>
+            <span class="meta">Secured funding for Anti-Racism initiatives</span>
           </div>
-          <span class="award-year">2023</span>
+          <span class="year">2023</span>
         </li>
         <li>
           <div>
             <strong>International Merit Scholarship</strong>
-            <span>University of Galway (Four-year funding)</span>
+            <span class="meta">University of Galway (Four-year funding)</span>
           </div>
-          <span class="award-year">2022</span>
-        </li>
-        <li>
-          <div>
-            <strong>UCD Advantage Award</strong>
-            <span>University College Dublin</span>
-          </div>
-          <span class="award-year">Recent</span>
+          <span class="year">2022</span>
         </li>
       </ul>
     </div>
   </div>
 </section>
 
-<section id="publications">
-  <p class="section-label">Selected Works</p>
-  <h2>Academic <em>Record.</em></h2>
-  <ul style="list-style: none; border-top: 1px solid var(--rule); margin-top: 2rem;">
-    <li class="pub-item">
-      <small>2025</small>
-      <h4>Towards an inclusive digital health ecosystem</h4>
-      <p><em>Bulletin of the World Health Organization.</em> 103(2):170-173.</p>
-    </li>
-    <li class="pub-item">
-      <small>2025</small>
-      <h4>Artificial intelligence for contextual well-being</h4>
-      <p><em>PLoS ONE.</em> 20(5):e0321426. Protocol for exploratory mixed-methods study.</p>
-    </li>
-    <li class="pub-item">
-      <small>2025</small>
-      <h4>AI Contextual Framework: A Zoning Approach to Ethical AI Deployment</h4>
-      <p><em>Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society.</em></p>
-    </li>
-    <li class="pub-item">
-      <small>2024</small>
-      <h4>Barriers and facilitators of international healthcare students' well-being in higher education</h4>
-      <p><em>JMIR Research Protocols.</em> 13:e59927.</p>
-    </li>
-  </ul>
+<section id="academic-record">
+  <div class="two-col-layout">
+    
+    <div>
+      <p class="section-label">Selected Works</p>
+      <h2>Publications.</h2>
+      <ul class="list-ui" style="margin-top: 2rem;">
+        <li>
+          <div>
+            <strong>Towards an inclusive digital health ecosystem</strong>
+            <span class="meta"><em>Bulletin of the World Health Organization.</em> 103(2):170-173.</span>
+          </div>
+          <span class="year">2025</span>
+        </li>
+        <li>
+          <div>
+            <strong>Artificial intelligence for contextual well-being</strong>
+            <span class="meta"><em>PLoS ONE.</em> 20(5):e0321426. Protocol for exploratory mixed-methods study.</span>
+          </div>
+          <span class="year">2025</span>
+        </li>
+        <li>
+          <div>
+            <strong>AI Contextual Framework: A Zoning Approach</strong>
+            <span class="meta"><em>Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society.</em></span>
+          </div>
+          <span class="year">2025</span>
+        </li>
+        <li>
+          <div>
+            <strong>Barriers and facilitators of international healthcare students' well-being</strong>
+            <span class="meta"><em>JMIR Research Protocols.</em> 13:e59927.</span>
+          </div>
+          <span class="year">2024</span>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="section-label">Conferences & Talks</p>
+      <h2>Presentations.</h2>
+      <ul class="list-ui" style="margin-top: 2rem;">
+        <li>
+          <div>
+            <strong>AAAI/ACM Conference on AI, Ethics, and Society (AIES)</strong>
+            <span class="meta">Paper Presentation</span>
+          </div>
+          <span class="year">2025</span>
+        </li>
+        <li>
+          <div>
+            <strong>ELLIS UnConference EurIPS</strong>
+            <span class="meta">Poster Presentation</span>
+          </div>
+          <span class="year">2025</span>
+        </li>
+        <li>
+          <div>
+            <strong>BERA ECR Journey</strong>
+            <span class="meta">Paper Accepted</span>
+          </div>
+          <span class="year">2026</span>
+        </li>
+        <li>
+          <div>
+            <strong>Nelson Mandela Anti-Racism Week</strong>
+            <span class="meta">Organiser & Invited Panellist (Open Talk)</span>
+          </div>
+          <span class="year">2023</span>
+        </li>
+        <li>
+          <div>
+            <strong>ECER Emerging Researchers' Conference (ERC)</strong>
+            <span class="meta">Paper Presentation</span>
+          </div>
+          <span class="year">2022</span>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
 </section>
 
 <section id="contact" style="background: var(--paper);">
@@ -462,17 +575,17 @@
       <small>Professional profile</small>
     </a>
     
-    <a href="https://toyaoxie.substack.com/" target="_blank" class="contact-card">
-      <i class="fa-solid fa-pen-nib"></i>
-      <span>Substack</span>
-      <small>Essays & ideas</small>
+    <a href="mailto:yao.xie@ucdconnect.ie" class="contact-card">
+      <i class="fa-solid fa-envelope"></i>
+      <span>Email Me</span>
+      <small>yao.xie@ucdconnect.ie</small>
     </a>
   </div>
 </section>
 
-<footer style="padding: 3rem 7rem; border-top: 1px solid var(--rule); font-size: 12px; color: var(--ink-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+<footer>
   <span>© 2026 Yao Xie · School of Medicine, UCD</span>
-  <span>AI · Well-being · Human-Centered Systems</span>
+  <span>Human-Computer Interaction · AI Systems · Digital Health</span>
 </footer>
 
 </body>
